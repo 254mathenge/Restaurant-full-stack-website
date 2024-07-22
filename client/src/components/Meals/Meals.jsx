@@ -42,8 +42,9 @@ function Meals() {
         myMeals.map((meal, index) => (
           <div className="meals-card" key={index}>
             <div className="meal-image">
-              <img src={meal.imageUrl} alt={meal.name} />
+              <img src={meal.imageUrl} alt={meal.name} className="meal-image"/>
             </div>
+            <div className="meal-texts">
             <div>
               <p className="meal-name">{meal.name}</p>
             </div>
@@ -51,20 +52,22 @@ function Meals() {
               <p className="meal-des">{meal.description}</p>
             </div>
             <div>
-              <p className="meal-price">{meal.price}</p>
+              <p className="meal-price">${meal.price}</p>
             </div>
             <div>
               <p className="meal-category">{meal.Category}</p>
             </div>
-
             <div>
-              <button className="meal-btn">Add to Cart</button>
+           <button className="meal-btn">Add to Cart</button>
+         </div>
             </div>
           </div>
+         
         ))
       ) : (
         <p>No meals available</p>
       )}
+        
     </div>
   );
 }

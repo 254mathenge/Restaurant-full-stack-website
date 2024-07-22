@@ -20,7 +20,7 @@ model users{
   emailAddress String @unique
   password String
   contact String
-  Role String @default ("user")
+  Role String? @default("user")
   @@map("users_table")
 }
 model meals{

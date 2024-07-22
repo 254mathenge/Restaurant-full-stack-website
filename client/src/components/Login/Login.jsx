@@ -25,6 +25,9 @@ function Login(){
             const data= await response.json()
             console.log(data)
             toast("login successful")
+            if (data.data.Role==="Admin"){
+                navigate("/CreateMeals")
+            }
             if (response.status === 200) {
                 localStorage.setItem("token", data.data.token)
                 navigate("/MyMeals")

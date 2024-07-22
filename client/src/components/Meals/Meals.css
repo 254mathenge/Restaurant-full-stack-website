@@ -2,5 +2,61 @@
 
 .meals-section{
     display:flex;
-    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.meals-card{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    width:270px;
+    padding:1rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  
+}
+.meal-image{
+    width:254px; 
+}
+.meal-texts{
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+    margin:0.5rem 0;
+}
+.meal-name{
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+}
+.meal-des{
+    margin:0.5rem 0;
+    line-height:1;
+    font-size: 1.2rem;
+}
+.meal-price{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin:0.5rem;
+    font-weight: 600;
+    color: rgb(241, 7, 85);
+}
+.meal-btn{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding:0.3rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.meal-btn:hover{
+    color: rgb(241, 7, 85);
 }

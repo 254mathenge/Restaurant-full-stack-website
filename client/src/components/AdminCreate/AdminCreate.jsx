@@ -72,7 +72,7 @@ function Create() {
   });
 
   return (
-    <>
+    <div className="admin-section">
       <div className="create-meal-section">
         <form className="meal-form" onSubmit={formik.handleSubmit}>
           <h2>Welcomee</h2>
@@ -80,7 +80,7 @@ function Create() {
           <ImageUpload setImageUrl={setImageUrl} />
 
           <div className="meal-name">
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name1">Name:</label>
             <input
               type="text"
               id="name"
@@ -105,7 +105,7 @@ function Create() {
               <p className="error">{formik.errors.description}</p>
             )}
           </div>
-          <div className="meal-price">
+          <div className="meal-price1">
             <label htmlFor="price">Price:</label>
             <input
               type="text"
@@ -137,7 +137,7 @@ function Create() {
         </form>
       </div>
       <AdminView />
-    </>
+    </div>
   );
 }
 
