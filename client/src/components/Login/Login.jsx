@@ -62,9 +62,11 @@ function Login(){
     return(
         <>
         <div className="login-section">
-            <h2 className="login-title">Login</h2>
+            
             <div className="login-form-section">
+           
                 <form className="form-section" onSubmit={formik.handleSubmit}>
+                <h2 className="login-title">Login</h2>
                     <div>
                     <label htmlFor="emailAddress">Email:</label>
                     <input type="emailAddress" id="emailAddress" name="emailAddress" placeholder="Enter emailAddress" value={formik.values.emailAddress} onBlur={formik.handleBlur} onChange={formik.handleChange} />{formik.touched.emailAddress && formik.errors.emailAddress && <p>{formik.errors.emailAddress}</p>}

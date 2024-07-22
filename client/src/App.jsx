@@ -6,6 +6,7 @@ import SignIn from "./pages/SignIn";
 import Menu from "./pages/Menu";
 import CreateMeals from "./pages/CreateMeals";
 import MyMeals from "./pages/MyMeals";
+import Footer from "./components/Footer/Footer"
 function App() {
   return <>
   <BrowserRouter>
@@ -18,6 +19,7 @@ function App() {
     <Route path="/CreateMeals" element={<CreateMeals/>}/>
     <Route path="/MyMeals" element={<MyMeals/>}/>
   </Routes>
+  <Footer/>
   </BrowserRouter>
   </>;
 }

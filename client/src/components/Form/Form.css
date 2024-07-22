@@ -1,0 +1,52 @@
+.signup-section{
+    background-image: url(../../assets/hero1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* height: 90vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signup-form-section{
+    margin: 0.5rem auto;
+    max-width: 600px;
+    background-color:white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 20px;
+}
+.form-section{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+}
+.signup-title{
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    text-decoration: underline;
+    text-decoration-color: black;
+
+}
+.signup-btn{
+    background-color:black;
+    color: white;
+    padding:0 1rem ;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.signup-btn:hover{
+    color: rgb(241, 3, 82);
+}

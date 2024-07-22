@@ -11,31 +11,7 @@ function Users() {
     const [meals, setMeals] = useState([]);
     const [error, setError] = useState(null);
     const[loading,setLoading]=useState()
-    const [image,setImage]=useState()
-    const uploadImage = async (image) => {
-        const formData = new FormData();
-        formData.append("file", image);
-      
-        const uploadPreset = "blog-image";
-        const cloudName = "dxwlzto9h";
-        formData.append("upload_preset", uploadPreset);
-        try {
-          const response = await fetch("https://api.cloudinary.com/v1_1/${dxwlzto9h}/image/upload", 
-            {
-              method: "POST",
-              body: formData,
-            },
-          );
-          const data = await response.json();
-          if (!data) return null;
-          return data.secure_url;
-        } catch (err) {
-          return null;
-        }
-      };
     
-    
-   
     useEffect(() => {
        
         const token = localStorage.getItem('token');
@@ -132,12 +108,9 @@ function Users() {
             ) : (
                 meals.map((meal, i) => (
                     <div className="user-meals-card" key={i} >
-                        <div className="meals-image">
-            <input type="file" name="image" className="meals-image" id="image" onChange={((e) => {setImage(e.target.files[0])})}/>
-                </div>
-                <div>
-                    <button onClick={uploadImage} >upload Image</button>
-                        </div>
+                       <div className="meal-image">
+              <img src={meal.imageUrl} alt={meal.name} />
+            </div>
                         <div className="user-details">
                         <div className="meal-title">
                             <p className="user-blog-title">{meal.title}</p>

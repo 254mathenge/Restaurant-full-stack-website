@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import {useState} from "react"
 import toast, { toastConfig } from 'react-simple-toasts';
-import 'react-simple-toasts/dist/theme/dark.css'; // choose your theme
+import 'react-simple-toasts/dist/theme/dark.css'; 
 import {Link, useNavigate } from "react-router-dom";
 toastConfig({ theme: 'dark' });
 
@@ -67,9 +67,10 @@ function Form(){
 
     return(
         <div className="signup-section">
-            <h2 className="signup-title">SignUp</h2>
+           
         <div className="signup-form-section">
             <form className="form-section" onSubmit={formik.handleSubmit}>
+            <h2 className="signup-title">SignUp</h2>
                 <div>
                 <label htmlFor="firstName">FirstName:</label>
                 <input type="text" id="firstName" name="firstName" placeholder="Enter firstname" value={formik.values.firstName}
@@ -107,7 +108,7 @@ function Form(){
               onBlur={formik.handleBlur}/>{formik.touched.contact && formik.errors.contact && <p>{formik.errors.contact}</p>}
                 </div>
                 <div>
-                <button className="submit-btn">submit</button>
+                <button className="signup-btn">submit</button>
                 </div>
                 <p>Already have an account??<Link to="/SignIn">SignIn</Link> </p>
             </form>

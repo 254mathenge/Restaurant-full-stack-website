@@ -41,12 +41,13 @@ function ImageUpload({setImageUrl}) {
       const data = await res.json()
 
       setUploading(false)
-
-      console.log("refined data..",data)
-      if (!data.secure_url) throw new Error("Failed to upload image")
+      console.log(data)
+      
+      if (!data.secure_url) 
+        res.status(500).json("Failed to upload image")
         setPreview(data.secure_url)
     setImageUrl(data.secure_url)
-    //   setImg_url(data.secure_url)
+
 
     } catch (err) {
         setUploading(false)

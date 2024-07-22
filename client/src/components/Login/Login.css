@@ -1,0 +1,53 @@
+
+.login-section{
+    background-image: url(../../assets/hero1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+.login-title{
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    text-decoration: underline;
+    text-decoration-color: black;
+}
+.login-form-section{
+    margin: 0.5rem auto;
+    max-width: 700px;
+    height: 70vh;
+    background-color:white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 20px; 
+}
+.form-section{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.login-btn{
+    background-color:black;
+    color: white;
+    padding:0 1rem ;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+ 
+}
+.login-btn:hover{
+    color: rgb(241, 3, 82);
+}
