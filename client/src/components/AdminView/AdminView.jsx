@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-undef */
 import { useEffect, useState } from "react"
-
+import "./AdminView.css"
 function View() {
   const [myMeals, setMyMeals] = useState();
   const [data, setData] = useState([]);
@@ -52,7 +52,7 @@ function View() {
     setLoading(true)
 
     try {
-      const response = await fetch(`http://localhost:3000/meals/mealId`, {
+      const response = await fetch(`http://localhost:3000/meals/${mealId}`, {
           method: "DELETE",
           headers: {
               'Content-Type': 'application/json',
@@ -132,40 +132,46 @@ function View() {
 
 
   return (
-    <div className="meals-section">
-      <h2 className="meals-title">Menu</h2>
+    <div className="meals-meals">
+     <h2 className="meals-title-meals">Admin Dashboard</h2>
+    <div className="meals-container">
+     
       {Array.isArray(myMeals) ? (
         myMeals.map((meal, index) => (
-          <div className="meals-card" key={index}>
-            <div className="meal-image">
-              <img src={meal.imageUrl} alt={meal.name} />
+          <div className="meals-the-card" key={index}>
+            <div className="meal-the-image">
+              <img src={meal.imageUrl} alt={meal.name} className="meal-the-image" />
+            </div>
+            <div className="meal-the-texts">
+            <div>
+              <p className="meal-the-name">{meal.name}</p>
             </div>
             <div>
-              <p className="meal-name">{meal.name}</p>
+              <p className="meal-the-des">{meal.description}</p>
             </div>
             <div>
-              <p className="meal-des">{meal.description}</p>
+              <p className="meal-the-price">${meal.price}</p>
             </div>
             <div>
-              <p className="meal-price">{meal.price}</p>
+              <p className="meal-the-category">{meal.Category}</p>
             </div>
-            <div>
-              <p className="meal-category">{meal.Category}</p>
             </div>
-
+            <div className="delete-edit-btn">
             <div>
             <button className="delete-btn" disabled={loading} onClick={(e) => {
                                 e.preventDefault();
                                 handleDelete(myMeals.mealId)
                             }}>
                             {loading ? "deleting..." : "delete"} </button>
-
-                            <button type="submit" disabled={loading}>
+                            </div>
+                            <div>
+                            <button type="submit" className="edit-button" >
             {loading ? "Updating..." : "Update"}
           </button>
           {/* <button type="button" onClick={() => setEditingMeal(null)}>
             Cancel
           </button> */}
+            </div>
             </div>
           </div>
         ))
@@ -228,6 +234,7 @@ function View() {
           </button> */}
         </form>
       )}
+    </div>
     </div>
   );
 }

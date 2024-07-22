@@ -11,10 +11,12 @@ toastConfig({ theme: 'dark' });
 
 function Form(){
     const [error,setError]=useState()
+    const [loading ,setLoading]=useState("")
     const navigate = useNavigate();
     const handleSubmit= async(values)=>{
         console.log("values")
         console.log(values)
+        setLoading(true)
         try{
             const response=await fetch("http://localhost:3000/users",{
                 method :"POST",
@@ -33,6 +35,9 @@ function Form(){
         }
         catch(error){
             console.log(error)
+        }
+        finally{
+          setLoading(false)
         }
     }
     const ValidationSchema = Yup.object({
@@ -108,7 +113,7 @@ function Form(){
               onBlur={formik.handleBlur}/>{formik.touched.contact && formik.errors.contact && <p>{formik.errors.contact}</p>}
                 </div>
                 <div>
-                <button className="signup-btn">submit</button>
+                <button className="signup-btn">{loading ? "please wait..." : "submit"}</button>
                 </div>
                 <p>Already have an account??<Link to="/SignIn">SignIn</Link> </p>
             </form>

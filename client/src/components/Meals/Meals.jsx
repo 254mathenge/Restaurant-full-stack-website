@@ -36,8 +36,10 @@ function Meals() {
   }, []);
 
   return (
+    <>
+     <h2 className="meals-title">Menu</h2>
     <div className="meals-section">
-      <h2 className="meals-title">Menu</h2>
+     
       {Array.isArray(myMeals) ? (
         myMeals.map((meal, index) => (
           <div className="meals-card" key={index}>
@@ -69,6 +71,7 @@ function Meals() {
       )}
         
     </div>
+    </>
   );
 }
 

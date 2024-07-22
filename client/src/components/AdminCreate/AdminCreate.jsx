@@ -75,12 +75,12 @@ function Create() {
     <div className="admin-section">
       <div className="create-meal-section">
         <form className="meal-form" onSubmit={formik.handleSubmit}>
-          <h2>Welcomee</h2>
+          <h2 className="admin-welcome">Welcomee</h2>
 
-          <ImageUpload setImageUrl={setImageUrl} />
+          <ImageUpload setImageUrl={setImageUrl} className="meal-image4" />
 
-          <div className="meal-name">
-            <label htmlFor="name1">Name:</label>
+          <div className="meal-name1">
+            <label htmlFor="name">Name:</label>
             <input
               type="text"
               id="name"
@@ -131,8 +131,8 @@ function Create() {
               <p className="error">{formik.errors.category}</p>
             )}
           </div>
-          <div className="meal-submit">
-            <button type="submit">Submit</button>
+          <div >
+            <button type="submit" className="meal-submit">Submit</button>
           </div>
         </form>
       </div>
