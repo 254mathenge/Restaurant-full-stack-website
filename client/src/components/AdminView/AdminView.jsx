@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-undef */
 import { useEffect, useState } from "react"
+
 import "./AdminView.css"
 function View() {
   const [myMeals, setMyMeals] = useState();
@@ -26,17 +27,17 @@ function View() {
             "Content-Type": "application/json",
           },
         });
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
-          console.log("meals fetched");
+          // console.log("meals fetched");
         }
         const data = await response.json();
-        console.log(data.meals);
+        // console.log(data.meals);
         setMyMeals(data.meals);
 
         if (Array.isArray(data)) {
           setMyMeals(data);
-          console.log("meals fetched");
+          // console.log("meals fetched");
         }
       } catch (error) {
         console.error("Error fetching meals:", error);
@@ -44,10 +45,10 @@ function View() {
     };
 
     fetchMeals();
-  }, []);
-  const handleDelete = async ( mealId ) => {
+  }, [myMeals]);
+  const handleDelete = async (mealId) => {
     console.log("deleting")
-    console.log([myMeals[0]])
+     console.log(myMeals[0])
     console.log(mealId)
     setLoading(true)
 
@@ -60,9 +61,11 @@ function View() {
       });
       console.log(response)
       const data = await response.json();
+  
+      console.log("response data",data)
       if (Array.isArray(data)) {
           setMyMeals(data);
-          console.log(data)
+          
           
       }
       if (response.status === 200) {
@@ -160,7 +163,7 @@ function View() {
             <div>
             <button className="delete-btn" disabled={loading} onClick={(e) => {
                                 e.preventDefault();
-                                handleDelete(myMeals.mealId)
+                                handleDelete(meal.mealId)
                             }}>
                             {loading ? "deleting..." : "delete"} </button>
                             </div>

@@ -20,22 +20,20 @@ function Login(){
             const response= await fetch("http://localhost:3000/users/login",{
                 method :"POST",
                 headers:{"Content-Type":"application/json"},
-                body:JSON.stringify(values)
+                body:JSON.stringify(values),
             })
             const data= await response.json()
-            console.log(data)
+            console.log("response",data)
             toast("login successful")
             if (data.data.Role==="Admin"){
                 navigate("/CreateMeals")
-            }
-            if (response.status === 200) {
+            }else {
                 localStorage.setItem("token", data.data.token)
                 navigate("/MyMeals")
-              } else {
-                setError(data.message)
-              }
+              } 
       
         }catch(error){
+            setError(error)
             console.log(error);
         }finally{
             setError(error);
