@@ -53,7 +53,7 @@ function ImageUpload({setImageUrl}) {
         setUploading(false)
         setImageUrl("")
       console.error("Error uploading image", err)
-    //   setImg_url("")
+    
     }
   }
 
