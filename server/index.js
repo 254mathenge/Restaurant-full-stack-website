@@ -3,6 +3,7 @@ import cors from "cors"
 import{config} from "dotenv"
 import usersRoutes from "./routes/users.routes.js";
 import mealsRoutes from "./routes/meals.routes.js"
+import ordersRoutes from "./routes/orders.routes.js"
 config()
 const app = express();
 app.use(cors({
@@ -13,6 +14,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use("/users",usersRoutes)
 app.use("/meals",mealsRoutes)
+app.use("/orders",ordersRoutes)
+
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });

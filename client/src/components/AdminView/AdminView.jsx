@@ -76,38 +76,22 @@ function View() {
   
   } catch (error) {
       setError(error.message);
-      console.error(error);
+      console.log(error);
   } finally {
       setLoading(false)
   }
 
   }
-  const handleEditClick = (meal) => {
-    setEditingMeal(meal);
-    setEditFormData({
-      name: meal.name,
-      description: meal.description,
-      price: meal.price,
-      imageUrl: meal.imageUrl,
-      category: meal.category,
-    });
-  };
-
-  const handleEditChange = (e) => {
-    const { name, value } = e.target;
-    setEditFormData({
-      ...setEditFormData,
-      [name]: value,
-    });
-  };
-
-  const handleUpdate = async (e) => {
+  const handleUpdate = async (e,mealId) => {
     e.preventDefault();
     setLoading(true);
+    console.log(mealId);
+    console.log("updating");
+    
 
     try {
-      const response = await fetch(`http://localhost:3000/meals/${editingMeal.mealId}`, {
-        method: "PUT",
+      const response = await fetch(`http://localhost:3000/meals/${mealId}`, {
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
@@ -117,6 +101,7 @@ function View() {
       const updatedMeal = await response.json();
 
       if (response.status === 200) {
+        console.log(updatedMeal);
         setMyMeals((prevMeals) =>
           prevMeals.map((meal) =>
             meal.mealId === editingMeal.mealId ? updatedMeal : meal
@@ -127,7 +112,7 @@ function View() {
       }
     } catch (error) {
       setError(error.message);
-      console.error(error);
+      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -161,82 +146,25 @@ function View() {
             </div>
             <div className="delete-edit-btn">
             <div>
-            <button className="delete-btn" disabled={loading} onClick={(e) => {
+            <button  className="delete-btn" disabled={loading} onClick={(e) => {
                                 e.preventDefault();
                                 handleDelete(meal.mealId)
                             }}>
                             {loading ? "deleting..." : "delete"} </button>
                             </div>
                             <div>
-                            <button type="submit" className="edit-button" >
+                            <button disabled={loading} onClick={handleUpdate}>
             {loading ? "Updating..." : "Update"}
           </button>
-          {/* <button type="button" onClick={() => setEditingMeal(null)}>
-            Cancel
-          </button> */}
-            </div>
+                            </div>
+                          
             </div>
           </div>
         ))
       ) : (
         <p>No meals available</p>
       )}
-      {editingMeal && (
-        <form className="edit-form" onSubmit={handleUpdate}>
-          <h3>Edit Meal</h3>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={editFormData.name}
-              onChange={handleEditChange}
-            />
-          </label>
-          <label>
-            Description:
-            <input
-              type="text"
-              name="description"
-              value={editFormData.description}
-              onChange={handleEditChange}
-            />
-          </label>
-          <label>
-            Price:
-            <input
-              type="text"
-              name="price"
-              value={editFormData.price}
-              onChange={handleEditChange}
-            />
-          </label>
-          <label>
-            Image URL:
-            <input
-              type="text"
-              name="imageUrl"
-              value={editFormData.imageUrl}
-              onChange={handleEditChange}
-            />
-          </label>
-          <label>
-            Category:
-            <input
-              type="text"
-              name="category"
-              value={editFormData.category}
-              onChange={handleEditChange}
-            />
-          </label>
-          {/* <button type="submit" disabled={loading}>
-            {loading ? "Updating..." : "Update"}
-          </button>
-          <button type="button" onClick={() => setEditingMeal(null)}>
-            Cancel
-          </button> */}
-        </form>
-      )}
+      
     </div>
     </div>
   );

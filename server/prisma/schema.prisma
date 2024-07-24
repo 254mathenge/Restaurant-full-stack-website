@@ -21,6 +21,7 @@ model users{
   password String
   contact String
   Role String? @default("user")
+  orders orders []
   @@map("users_table")
 }
 model meals{
@@ -31,4 +32,12 @@ model meals{
   price Float
   category String
   @@map("meals_table")
+}
+model orders{
+  orderId String @id @default(uuid())
+  title String
+  createdAt DateTime @default(now())
+  customer users @relation(fields: [customerId], references: [id])
+  customerId String 
+   @@map("orders_table")
 }

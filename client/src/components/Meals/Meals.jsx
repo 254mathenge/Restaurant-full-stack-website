@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import "./Meals.css";
 import useCartStore from "../../Store/AddCartStore";
-
+import toast, { toastConfig } from 'react-simple-toasts';
+import 'react-simple-toasts/dist/theme/dark.css'; 
+toastConfig({ theme: 'dark' });
 function Meals() {
   const addItemToCart = useCartStore((state) => state.addItemToCart);
   const [myMeals, setMyMeals] = useState();
@@ -37,9 +39,10 @@ function Meals() {
     fetchMeals();
   }, []);
   const handleSubmit = (meal) => {
-    addItemToCart(meal);
+    addItemToCart(meal)
     console.log("added to cart");
-    alert("Item added to cart");
+    toast("Item added to cart");
+    console.log(meal)
   };
 
   return (

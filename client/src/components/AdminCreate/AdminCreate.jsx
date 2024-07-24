@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import AdminView from "../AdminView/AdminView"
+import Order from "../Orders/Orders"
+
 import "./AdminCreate.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,11 +21,14 @@ function Create() {
     console.log("submitting");
     setLoading(true);
     setError("");
+
+    const token = localStorage.getItem("token");
     try {
       const response = await fetch("http://localhost:3000/meals", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
 
         body: JSON.stringify(values),
@@ -34,7 +39,7 @@ function Create() {
       setLoading(false);
 
       if (response.status === 201) {
-        alert("meal created sucessful");
+        toast("meal created sucessful");
         navigate("/Menu");
       } else {
         setError(data.message);
@@ -70,12 +75,13 @@ function Create() {
     },
     validationSchema: validationSchema,
   });
-
   return (
     <div className="admin-section">
       <div className="create-meal-section">
+        
         <form className="meal-form" onSubmit={formik.handleSubmit}>
-          <h2 className="admin-welcome">Welcomee</h2>
+
+          <h2 className="admin-welcome">Post a Meal</h2>
 
           <ImageUpload setImageUrl={setImageUrl} className="meal-image4" />
 
@@ -137,6 +143,7 @@ function Create() {
         </form>
       </div>
       <AdminView />
+      <Order/>
     </div>
   );
 }

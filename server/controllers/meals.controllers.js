@@ -39,6 +39,29 @@ export const getMealById =async(req,res)=>{
         res.status(500).json({success:false,message:error.message})
     }
 }
+export const updateMeal =async(req,res)=>{
+    const id=req.params.mealId
+    console.log("updating")
+    try{
+        const {imageUrl,name,price,description,category}=req.body
+        const updatedMeal=await prisma.meals.update({
+            where:{
+                mealId:id
+            },
+            data:{
+                    ...(imageUrl && {imageUrl}),
+                    ...(name&& {name }),
+                    ...(price && { price }),
+                    ...(description && {description}),
+                    ...(category && {category})
+            }
+        })
+        console.log(updateMeal)
+        res.json({updatedMeal})
+    }catch(error){
+        res.status(500).json({success:false,message:error.message})
+    }
+}
 export const deleteMeal= async(req,res)=>{
     const id=req.params.mealId
     console.log("deleting");

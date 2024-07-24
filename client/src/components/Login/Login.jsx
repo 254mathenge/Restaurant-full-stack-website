@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import "./Login.css"
+import useStore from "../../Store/RoleStore"
 import React from "react"
 import { useState } from "react"
 import { useNavigate} from "react-router-dom"
@@ -9,7 +10,8 @@ import toast, { toastConfig } from 'react-simple-toasts';
 import 'react-simple-toasts/dist/theme/dark.css'; 
 toastConfig({ theme: 'dark' });
 function Login(){
-    
+    const setUserRole = useStore((state) => state.setUserRole);
+    const Role = useStore((state) => state.Role);
     const [error, setError]=useState()
     const[loading,setLoading]=useState()
     const navigate = useNavigate();
@@ -20,21 +22,29 @@ function Login(){
             const response= await fetch("http://localhost:3000/users/login",{
                 method :"POST",
                 headers:{"Content-Type":"application/json"},
+                
                 body:JSON.stringify(values),
+                // credentials:"include"
             })
             const data= await response.json()
             console.log("response",data)
             toast("login successful")
             if (data.data.Role==="Admin"){
+                localStorage.setItem("token", data.data.token)
                 navigate("/CreateMeals")
+                setUserRole(true)
+                console.log(Role);
+                
             }else {
                 localStorage.setItem("token", data.data.token)
-                navigate("/MyMeals")
+                navigate("/Menu")
+                setUserRole(true)
+                console.log(Role);
               } 
       
         }catch(error){
             setError(error)
-            console.log(error);
+            console.log("cannot login user");
         }finally{
             setError(error);
             setLoading(false);
@@ -77,7 +87,7 @@ function Login(){
                     <input type="password" id="password" name="password" placeholder="Enter password" value={formik.values.password} onBlur={formik.handleBlur} onChange={formik.handleChange} />{formik.touched.password && formik.errors.password &&<p>{formik.errors.password}</p>}
                     </div>
                     <div>
-                    <button className="login-btn">Login</button>
+                    <button type="submit" className="login-btn">Login</button>
                     </div>
                 </form>
             </div>
