@@ -87,7 +87,7 @@ function Login(){
                     <input type="password" id="password" name="password" placeholder="Enter password" value={formik.values.password} onBlur={formik.handleBlur} onChange={formik.handleChange} />{formik.touched.password && formik.errors.password &&<p>{formik.errors.password}</p>}
                     </div>
                     <div>
-                    <button type="submit" className="login-btn">Login</button>
+                    <button type="submit" className="login-btn">{loading ? "..." : "Login"}</button>
                     </div>
                 </form>
             </div>

@@ -31,7 +31,7 @@ const Header = () => {
                   <Link to="/menu">OurMenu</Link>
                 </li>
                 <li className="nav-list-link">
-                  <Link to="/myMeals">myMeals</Link>
+                  <Link to="/Cart">Cart</Link>
                 </li>
                 <li>
                   <button onClick={handleLogout}>Logout</button>

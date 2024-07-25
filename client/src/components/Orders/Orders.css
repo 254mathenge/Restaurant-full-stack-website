@@ -1,0 +1,31 @@
+.meal-order{
+display:flex;
+justify-content:center;
+align-items:center; 
+flex-wrap:wrap;
+gap:2rem;
+}
+
+.order-card{
+display:flex;
+justify-content:center;
+align-items:center; 
+flex-direction:column;
+border-radius:15px;
+border-bottom:4px solid black;
+ width:250px;
+ height:150px;
+ box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.meal-name{
+        display:flex;
+        justify-content:center;      
+        align-items:center; 
+        flex-wrap:wrap;
+        gap:2rem;
+}
+
+.order-user,.order-time{
+    font-size:1rem;
+    font-weight:400;
+}

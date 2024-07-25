@@ -3,22 +3,22 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 1.5rem 0;
+    margin: 1.5rem 0.5rem;
     /* height:80vh; */
+    /* background-image: url(../../assets/hero1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+
+
 }
-.testimonials-h2{
+.testimonials{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
     font-size: 3rem;
 margin-bottom:1rem ;
-border: 2px  solid white;
-padding: 1rem 5rem;
-margin: 1rem 30rem;
-border-radius: 20px;
-background-color: rgb(255, 19, 118);
-color: white;
 }
 
 .testimonial-card{
@@ -27,6 +27,7 @@ color: white;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+   
 }
 .testimonial-details{
     display: flex;
@@ -39,12 +40,14 @@ width:250px;
 border-radius: 10px;
 height:300px;
 transition:all ease 0.5s;
-border-top:6px solid rgba(248, 16, 113, 0.473);
+border-top:6px solid black;
+background-color: white;
+color: black;
 }
 .testimonial-details:hover{
     transform:scale(1.05);
     box-shadow: rgba(0, 0, 0, 0.979) 0px 3px 12px;
-    border-top:6px solid rgb(255, 19, 118);
+    border-top:6px solid black;
 }
 .testimonial-image{
     display:flex;
@@ -62,7 +65,7 @@ border-top:6px solid rgba(248, 16, 113, 0.473);
     justify-content:end;
     width:100%;
     height:100%;
-    border:2px solid rgb(255, 19, 118);
+    border:2px solid black;
     border-radius:50%;
     
   

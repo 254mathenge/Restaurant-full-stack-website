@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
-import AdminView from "../AdminView/AdminView"
-import Order from "../Orders/Orders"
+
 
 import "./AdminCreate.css";
 import { useState } from "react";
@@ -142,8 +141,7 @@ function Create() {
           </div>
         </form>
       </div>
-      <AdminView />
-      <Order/>
+     
     </div>
   );
 }

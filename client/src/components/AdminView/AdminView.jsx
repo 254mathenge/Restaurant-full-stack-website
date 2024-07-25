@@ -69,7 +69,7 @@ function View() {
           
       }
       if (response.status === 200) {
-          setMyMeals(myMeals.filter((myMeal) => myMeal.mealIdid !== mealId));
+          setMyMeals(myMeals.filter((myMeal) => myMeal.mealId !== mealId));
           console.log("meal deleted")
           
       }

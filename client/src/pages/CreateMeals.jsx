@@ -1,9 +1,17 @@
 
-import Create from "../components/AdminCreate/AdminCreate";
-
+import Order from "../components/Orders/Orders"
+import Create from "../components/AdminCreate/AdminCreate"
+import View from "../components/AdminView/AdminView"
 function CreateMeals(){
-    return(
-        <Create/>
-    )
+return(
+    <>
+
+   
+   
+    <View/>
+    <Create/>
+    <Order/>
+    </>
+)
 }
-export default CreateMeals;
+export default CreateMeals

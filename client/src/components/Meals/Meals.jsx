@@ -70,7 +70,7 @@ function Meals() {
                   <p className="meal-price">${meal.price}</p>
                 </div>
                 <div>
-                  <p className="meal-category">{meal.Category}</p>
+                  <p className="meal-category">{meal.category}</p>
                 </div>
                 <div>
                   <button

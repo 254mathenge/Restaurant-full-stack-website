@@ -1,9 +1,11 @@
-import Order from "../components/Orders/Orders"
-function Cart (){
+import Users from "../components/UsersCart/UsersCart";
+
+function MyMeals(){
     return(
         <>
-        <Order/>
+          <Users/>
         </>
+      
     )
 }
-export default Cart
+export default MyMeals;
