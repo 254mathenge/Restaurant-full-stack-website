@@ -49,29 +49,20 @@ function Order(){
     
         fetchOrders();
       }, []);
-      const handleDelete = async (orderId) => {
+      const handleDelete = async() => {
         console.log("deleting")
-        console.log(orderId)
+        // console.log(orderId)
         setLoading(true)
-        const token = localStorage.getItem('token');
-
-        if (!token) {
-            setError('No token found');
-            return;
-            }
-            
-    
         try {
           const response = await fetch(`http://localhost:3000/orders/${orderId}`, {
               method: "DELETE",
               headers: {
                   'Content-Type': 'application/json',
               }, 
-               'Authorization': `Bearer ${token}`
+              //  'Authorization': `Bearer ${token}`
           });
           console.log(response)
           const data = await response.json();
-      
           console.log("response data",data)
           if (Array.isArray(data)) {
               setMyOrders(data);
@@ -112,7 +103,7 @@ function Order(){
                     <p className="order-time">Date:{new Date(order.createdAt).toLocaleDateString()}</p>
                     </div>
                     <div>
-            <button  className="delete-btn" disabled={loading} onClick={(e) => {
+            <button  className="delete-btn"  onClick={(e) => {
                                 e.preventDefault();
                                 handleDelete(order.orderId)
                             }}>

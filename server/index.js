@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors"
+import CookieParser from "cookie-parser"
 import{config} from "dotenv"
 import usersRoutes from "./routes/users.routes.js";
 import mealsRoutes from "./routes/meals.routes.js"
@@ -12,6 +13,7 @@ app.use(cors({
 }))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use(CookieParser())
 app.use("/users",usersRoutes)
 app.use("/meals",mealsRoutes)
 app.use("/orders",ordersRoutes)
