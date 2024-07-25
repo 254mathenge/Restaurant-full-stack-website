@@ -70,6 +70,11 @@ function Login(){
         },
         validationSchema:ValidationSchema
     })
+    const handleLogout = () => {
+        setUserRole(false);
+        navigate("/");
+        // console.log(Role);
+      };
     return(
         <>
         <div className="login-section">
@@ -89,7 +94,11 @@ function Login(){
                     <div>
                     <button type="submit" className="login-btn">{loading ? "..." : "Login"}</button>
                     </div>
+                    <div >
+                <button onClick={handleLogout} className="go-back">Logout</button>
+                </div>
                 </form>
+                
             </div>
         </div>
         </>
